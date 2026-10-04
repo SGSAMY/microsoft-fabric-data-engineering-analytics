@@ -94,6 +94,10 @@ The final **Travel Insurance Performance & Claims Analytics** report provides an
 
 Interactive slicers allow analysis by **policy type, sales channel and policy start date**.
 
+### Power BI Report
+
+![Travel Insurance Performance & Claims Analytics](screenshots/fabric-travel-insurance-dashboard.png)
+
 ## Key Technologies
 
 `Microsoft Fabric` `Fabric Data Factory` `OneLake` `Lakehouse` `PySpark` `Delta Lake` `DAX` `Power BI`
