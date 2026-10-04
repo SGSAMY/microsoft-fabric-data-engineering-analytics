@@ -1,5 +1,16 @@
 # Microsoft Fabric Travel Insurance Analytics
 
+## Key Technologies
+
+![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-243A5E?style=flat-square&logo=microsoft&logoColor=white)
+![Fabric Data Factory](https://img.shields.io/badge/Fabric_Data_Factory-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![OneLake](https://img.shields.io/badge/OneLake-0089D6?style=flat-square&logo=microsoftazure&logoColor=white)
+![Lakehouse](https://img.shields.io/badge/Lakehouse-0078D4?style=flat-square&logo=databricks&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
+![Delta Lake](https://img.shields.io/badge/Delta_Lake-00ADD8?style=flat-square&logo=delta&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![DAX](https://img.shields.io/badge/DAX-1170AA?style=flat-square&logo=powerbi&logoColor=white)
+
 An end-to-end data engineering and analytics project built using **Microsoft Fabric**, demonstrating data ingestion, pipeline orchestration, Lakehouse architecture, PySpark transformation, Delta tables, semantic modelling and Power BI reporting.
 
 ## Project Overview
@@ -97,10 +108,6 @@ Interactive slicers allow analysis by **policy type, sales channel and policy st
 ### Power BI Report
 
 ![Travel Insurance Performance & Claims Analytics](screenshots/fabric-travel-insurance-dashboard.png)
-
-## Key Technologies
-
-`Microsoft Fabric` `Fabric Data Factory` `OneLake` `Lakehouse` `PySpark` `Delta Lake` `DAX` `Power BI`
 
 ## Business Insights
 
