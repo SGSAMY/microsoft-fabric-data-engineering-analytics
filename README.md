@@ -134,3 +134,13 @@ The Microsoft Fabric Data Factory pipeline successfully orchestrates the complet
 Ingest_Raw_TravelInsurance first copies the source dataset into the Lakehouse landing layer. After successful ingestion, Transform_TravelInsurance executes the PySpark notebook to process the data and write the curated Delta tables.
 
 ![Microsoft Fabric Pipeline Execution](screenshots/fabric-pipeline-success.png)
+
+## Author
+
+### Satheesh Gurusamy
+
+### Connect With Me
+
+- LinkedIn : https://www.linkedin.com/in/satheeshgurusamy
+- Web : www.sgsamy.com
+- GitHub : https://github.com/SGSAMY
