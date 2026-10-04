@@ -10,6 +10,10 @@ A **Microsoft Fabric Data Factory pipeline** orchestrates the ingestion and tran
 
 A **semantic model** provides the business layer for an interactive Power BI report covering policy performance, premium income, claims and risk indicators.
 
+## Solution Architecture
+
+![Microsoft Fabric Travel Insurance Architecture](screenshots/fabric-travel-insurance-architecture.png)
+
 ## Architecture
 
 **Source Data → Fabric Data Factory Pipeline → OneLake / Lakehouse → PySpark Transformation → Delta Tables → Semantic Model → Power BI**
