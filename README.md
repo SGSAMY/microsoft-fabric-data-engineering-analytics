@@ -111,3 +111,11 @@ For example, the portfolio analysis identifies **Annual Multi-Trip** as the poli
 This portfolio project demonstrates practical implementation of an **end-to-end Microsoft Fabric data engineering and analytics solution**, covering data ingestion, pipeline orchestration, Lakehouse storage, PySpark transformation, Delta Lake, semantic modelling and business intelligence.
 
 It also demonstrates how Microsoft Fabric can bring data engineering and analytics workloads together within a unified platform.
+
+## Pipeline Execution
+
+The Microsoft Fabric Data Factory pipeline successfully orchestrates the complete ingestion and transformation workflow.
+
+`Ingest_Raw_TravelInsurance` first copies the source dataset into the Lakehouse landing layer. After successful ingestion, `Transform_TravelInsurance` executes the PySpark notebook to process the data and refresh the curated Delta tables.
+
+![Microsoft Fabric Pipeline Execution](screenshots/fabric-pipeline-success.png)
