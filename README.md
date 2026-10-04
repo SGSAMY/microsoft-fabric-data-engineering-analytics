@@ -1,23 +1,25 @@
 # Microsoft Fabric Travel Insurance Analytics
 
-An end-to-end data engineering and analytics project built using **Microsoft Fabric**, demonstrating data ingestion, transformation, Lakehouse architecture, Delta tables, semantic modelling and Power BI reporting.
+An end-to-end data engineering and analytics project built using **Microsoft Fabric**, demonstrating data ingestion, pipeline orchestration, Lakehouse architecture, PySpark transformation, Delta tables, semantic modelling and Power BI reporting.
 
 ## Project Overview
 
-This project demonstrates how travel insurance policy and claims data can be processed through a modern Microsoft Fabric analytics workflow.
+This project demonstrates how travel insurance policy and claims data can be processed through a modern Microsoft Fabric data engineering and analytics workflow.
 
-The solution ingests raw travel insurance data into a Fabric Lakehouse, transforms and validates the data using PySpark, creates curated analytical tables using Delta Lake, and exposes the results through a semantic model and interactive Power BI report.
+A **Microsoft Fabric Data Factory pipeline** orchestrates the ingestion and transformation process. Raw travel insurance data is copied into the Fabric Lakehouse landing layer, then processed using a **PySpark notebook** to create curated Delta tables for downstream analytics.
+
+A **semantic model** provides the business layer for an interactive Power BI report covering policy performance, premium income, claims and risk indicators.
 
 ## Architecture
 
 **Source Data → Fabric Data Factory Pipeline → OneLake / Lakehouse → PySpark Transformation → Delta Tables → Semantic Model → Power BI**
 
-### Microsoft Fabric Components
+## Microsoft Fabric Components
 
-- **Fabric Data Factory** – pipeline orchestration and data ingestion
+- **Fabric Data Factory** – data ingestion and pipeline orchestration
 - **OneLake** – centralised data storage
-- **Fabric Lakehouse** – storage and management of analytical data
-- **PySpark Notebook** – transformation and data quality processing
+- **Fabric Lakehouse** – landing and curated analytical data
+- **PySpark Notebook** – data transformation and data-quality processing
 - **Delta Lake** – curated analytical tables
 - **Semantic Model** – business measures and analytical layer
 - **Power BI** – interactive reporting and visualisation
@@ -25,26 +27,47 @@ The solution ingests raw travel insurance data into a Fabric Lakehouse, transfor
 ## Data Engineering Workflow
 
 ### 1. Data Ingestion
-A Microsoft Fabric Data Factory pipeline was created to ingest the source travel insurance dataset into the Fabric Lakehouse.
 
-### 2. Lakehouse Storage
-The ingested data is stored in OneLake through the Fabric Lakehouse, providing a central location for the project's data.
+The `PL_Process_TravelInsurance` pipeline uses a **Copy Data** activity (`Ingest_Raw_TravelInsurance`) to move the source travel insurance CSV into the Lakehouse landing layer.
 
-### 3. Data Transformation
-A Fabric notebook using PySpark transforms and prepares the raw data for analytics.
+The landing dataset is stored in:
 
-The transformation process includes data type handling, derived fields and preparation of policy and claims data for downstream analysis.
+`Files/landing/travel_insurance.csv`
+
+### 2. Pipeline Orchestration
+
+The ingestion activity is connected to the `Transform_TravelInsurance` notebook activity using a success dependency.
+
+This ensures that the transformation process starts only after the ingestion step has completed successfully.
+
+**Pipeline flow:**
+
+`Ingest_Raw_TravelInsurance → Transform_TravelInsurance`
+
+### 3. PySpark Transformation
+
+The `NB_Transform_TravelInsurance` notebook reads the landed travel insurance dataset from the Fabric Lakehouse and processes it using **PySpark**.
+
+The transformation workflow includes:
+
+- Schema inference and data type handling
+- Data preparation and transformation
+- Derived analytical fields
+- Data-quality processing
+- Preparation of policy and claims data for downstream analytics
 
 ### 4. Curated Delta Tables
-The transformed data is written into Delta tables for analytical consumption.
 
-The project includes analytical tables such as:
+The transformed data is written to curated **Delta tables** for analytical consumption.
+
+Key analytical tables include:
 
 - `gold_fact_policy`
 - `gold_claim_summary`
 
 ### 5. Semantic Model
-A Fabric semantic model provides the business layer used by the Power BI report.
+
+The `SM_TravelInsurance_Analytics` semantic model provides the business and analytical layer used by the Power BI report.
 
 Key measures include:
 
@@ -56,7 +79,7 @@ Key measures include:
 
 ### 6. Power BI Analytics
 
-The final report provides analysis of:
+The final **Travel Insurance Performance & Claims Analytics** report provides analysis of:
 
 - Premium by destination
 - Claims distribution by destination
@@ -65,7 +88,7 @@ The final report provides analysis of:
 - Policy distribution by sales channel
 - Overall policy, premium and claims KPIs
 
-Interactive slicers allow analysis by policy type, sales channel and policy start date.
+Interactive slicers allow analysis by **policy type, sales channel and policy start date**.
 
 ## Key Technologies
 
@@ -73,10 +96,18 @@ Interactive slicers allow analysis by policy type, sales channel and policy star
 
 ## Business Insights
 
-The analytical layer enables comparison of premium income against claims, identification of higher-risk policy types, analysis of destination-level performance and monitoring of policy distribution across sales channels.
+The analytical layer enables:
+
+- Comparison of premium income against claims
+- Identification of higher-risk policy types
+- Analysis of destination-level performance
+- Monitoring of policy distribution across sales channels
+- Trend analysis of premiums and claims over time
 
 For example, the portfolio analysis identifies **Annual Multi-Trip** as the policy type with the highest claim ratio in the sample dataset.
 
 ## Project Purpose
 
-This portfolio project was created to demonstrate practical implementation of an end-to-end Microsoft Fabric data engineering and analytics workflow, from ingestion and transformation through to semantic modelling and business intelligence.
+This portfolio project demonstrates practical implementation of an **end-to-end Microsoft Fabric data engineering and analytics solution**, covering data ingestion, pipeline orchestration, Lakehouse storage, PySpark transformation, Delta Lake, semantic modelling and business intelligence.
+
+It also demonstrates how Microsoft Fabric can bring data engineering and analytics workloads together within a unified platform.
